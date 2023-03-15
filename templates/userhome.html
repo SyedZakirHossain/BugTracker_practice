@@ -1,0 +1,99 @@
+{% extends 'main.html' %}
+
+{% load static %}
+{% block content %}
+
+<title>{{ title}}</title>
+
+
+
+    <style>
+      #Hello-msg{
+        fontsize:18px;
+        color:#FFFFFF;
+        margin-left:20px;
+      }
+      #carddenger{
+        
+        color:#FFFFFF;
+        
+        }
+      #card{
+        fontsize:18px;
+        display: flex;  
+        margin-top:20px;
+        margin-left:20px;
+        }
+        table, th, td {
+          border: 1px solid black;
+        }
+        table.center {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        h1{
+            text-align: center;
+            color:#12225D;
+                      }
+        h3{
+          text-align: center;
+          color:red;
+                    }
+        a{
+          text-align: center;
+          color:red;
+                    }  
+        button{
+          text-align: center;
+          
+                    }                      
+    </style>
+
+    
+    
+   
+ 
+  
+  
+  <h1 >Hello {{ request.user }} welcome to your dashboard.</h1><br>
+  {% if request.user.is_staff %}
+           
+            <div class="container text-center">
+                <div class="row row-cols-4"> 
+                   
+           
+                <div class="card text-bg-primary mb-3"id="card" style="max-width: 15rem;">
+                    
+                  <div class="card-header">Issue_list</div>
+                    <div class="card-body">
+                       <!--h5 class="card-title">Primary card title</h5-->
+                      <h5> <a href="{% url 'bugapp:all_issue' %}"class="card-title">Click here</a></h5>
+                      <p class="card-text">For quick entry the information of student/s.</p>
+                  </div>
+                </div>
+                
+                     
+                   
+              
+              
+               
+              <div class="card text-bg-danger mb-3"id="card" style="max-width: 15rem;">
+                <div class="card-header">Admin dashboard </div>
+                  <div class="card-body">
+                    <h5> <a href="{% url 'bugapp:admin' %}"class="card-title">Click here</a></h5>
+                    
+                    <p class="card-text">Admin panel login</p>
+                  </div>
+               </div>
+            </div>
+        </div>
+        {% endif %}
+    <br>
+    
+    
+         
+    
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>    
+{% endblock %}      

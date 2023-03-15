@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Navbar</title>
+        
+    </head>
+    <body>
+        <!--------------------Start navbar------------------------>
+    <nav class="navbar navbar-expand-lg" style="background-color: #ff0000;font-color: #fff;">
+        <!--nav class="navbar navbar-expand-lg bg-dark"-->
+          <div class="container-fluid">
+            <a class="navbar-brand"href="" ></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+                    
+            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                
+                  <li class="navbar-brand">
+                    {% if request.user.is_staff %}
+                   
+                    <a class="nav-link active" href="{% url 'bugapp:all_issue' %}">Issue_list</a>
+                    {% endif %}
+                  </li>
+                  <li class="navbar-brand">
+                    <a class="nav-link active" href="{% url 'bugapp:home' %}">Home</a>
+                  </li>
+                  <li class="navbar-brand">
+                    <a class="nav-link active" href="{% url 'bugapp:contact' %}">Submit</a>
+                  </li>
+                  
+                  <li class="navbar-brand">
+                    <a class="nav-link active"id= "Hello-msg" >Welcome       {{request.user}}</a>
+                  </li>
+
+                 
+                  <li class="navbar-brand">
+                    <a class="nav-link active"href="{% url 'bugapp:login' %}">Login</a>
+                  </li>
+
+                  <li class="navbar-brand">
+                    <a class="nav-link active"href="{% url 'bugapp:logout' %}">Logout</a>
+                  </li>
+                <li class="navbar-brand">
+                 <span> </span> 
+                </li>
+              </ul>
+              </div>
+          </div>
+        </nav>
+        <!--------------------End navbar------------------------>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
