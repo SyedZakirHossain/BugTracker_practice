@@ -6,7 +6,7 @@ class CustomerAdmin(admin.ModelAdmin):
 admin.site.register(Customer,CustomerAdmin)
 
 class ContactAdmin(admin.ModelAdmin):
-           list_display=('pk','name','email','desc',)
+           list_display=('pk','name','email','desc','image')
 admin.site.register(Contact,ContactAdmin)
 
 class TeamAdmin(admin.ModelAdmin):
