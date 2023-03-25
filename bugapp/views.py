@@ -36,20 +36,15 @@ def contact(request):
     return render(request, "contact.html")
 #========================================================= 
 
-@login_required(login_url="/login")
 def contactsave(request):
-    try:
-        if request.method == "POST":
-            name = request.POST["name"]
-            email = request.POST["email"]
-            desc = request.POST["desc"]
-            values = Contact(name=name, email=email, desc=desc)
-            values.save()
-            messages.info(request, "Thanks. Issue submitted. Our support team will communicate ASAP. ")
-    except:
-        pass
-    return redirect("/contact")
-
+    if request.method == 'POST':
+        form = ContactForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/all_issue')
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {'form': form})
 #========================================================= 
 
 
