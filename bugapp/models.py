@@ -8,9 +8,6 @@ class Customer(models.Model):
     def __str__(self):
        return self.name + " " + self.email + " " + self.location
 
-
-
-
    
 class Team(models.Model):
     name = models.CharField(max_length=30,null=True)
