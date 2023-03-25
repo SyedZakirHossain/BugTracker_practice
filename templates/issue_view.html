@@ -2,11 +2,6 @@
 
 {% load static %}
 
-
-
-
-
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -89,11 +84,7 @@
   <div>
   <br> 
   <h1 > All issues </h1>
-   
-    <ul>
-      
-       
-        </ul>
+ 
         <div>
             <br>
             {% for n in contact %}
@@ -115,6 +106,15 @@
                       <th colspan=10>Description:-{{n.desc}} </th>
                     </tr>   
                     <br> 
+                 <tr>
+                      {% if n.image.url %}
+                      <td>
+                        <img src="{{n.image.url}}" alt="Uploaded image" width="600px" height-"600px ">
+                      </td>
+                     
+                      {% endif %}  
+                        </tr><br> 
+                    
                    {% endfor %}
               </table>             
               <br>        
