@@ -12,6 +12,10 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+              #ex1 {
+              
+              margin-inline: 50px;
+            }
             table, th, td {
                 border: 1px solid black;
             }
@@ -72,34 +76,22 @@
           </div>
         </nav>
         <!--------------------End navbar------------------------>
-      <br><h3 >Tell us about the issue.</h3>
-    <form action="contactsave" method="post">
+    <br><h3 >Tell us about the issue.</h3>
+      <div id="ex1">
+    <form action="contactsave" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-    <div class="container">
-            <div class="mb-3">
-            <label for="name"class="form-label" >Name</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" >
-            </div> 
-        <div class="mb-3">
-            <label for="email"class="form-label" >Email</label>
-            <input type="email" class="form-control" id="email" name="email"placeholder="Enter your email" >
-            </div>
-        <div class="mb-3">
-            <label for="desc"class="form-label" > Issue description</label>
-            <textarea class="form-control" id="desc" name="desc" placeholder=" Write about the issue here, please try to include every details." rows="3"></textarea>
-        </div> 
-        
-        <div class="d-flex justify-content-center mt-3 login_container">
-            <input class="btn btn-success" type="submit" value="Submit" class="ml-2"></a>
-        </div>    
-        
-        <div>
+
+            
+              {{ form.as_p }}
+              <button type="submit">Upload</button>
+          </form>
+        </div>
+          <div>
             {% for message in messages %}
             <h3>{{message}}</h3>
             {% endfor %}
            </div>
-    </div>
-    </form>    
+            
        
             
     </body>
