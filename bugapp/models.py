@@ -25,6 +25,7 @@ class Contact(models.Model):
     name = models.CharField(max_length=50, null=True)
     email = models.EmailField(max_length=50, null=True)
     desc = models.TextField(max_length=5000, null=True)
+    image = models.ImageField(null=True,blank=True,upload_to="static/")
     
     class Meta:
         verbose_name_plural = "Contacts"
